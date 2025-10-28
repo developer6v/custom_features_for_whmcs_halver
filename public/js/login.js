@@ -8,8 +8,8 @@ document.addEventListener('DOMContentLoaded', function() {
     brandingPanel.id = 'branding-panel';
     brandingPanel.innerHTML = `
         <img src="/modules/addons/custom_features_for_whmcs_halver/public/img/logo.svg" alt="halver Logo" class="logo">
-        <h2><strong>Bem-vindo</strong> de volta,  
-    <br><strong>O 1º Datacenter do Sul de Minas</strong></h2>
+        <h2><strong>Bem-vindo</strong> de volta!
+    <br><strong><br>O 1º Datacenter do Sul de Minas</strong></h2>
              <div class="flex gap-3 items-center">
             <div class="flex">
                 <img alt="Cliente 1" loading="lazy" decoding="async" data-nimg="1" class="rounded-full imgclient border border-white" style="color:transparent" src="/modules/addons/custom_features_for_whmcs_halver/public/img/profile1.jpg">
