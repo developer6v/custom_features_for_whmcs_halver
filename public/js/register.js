@@ -274,12 +274,12 @@ class StepByStepForm {
         this.translateLabel('inputFullName', t.fullName);
         this.translateLabel('inputPhone', t.phone);
         this.translateLabel('inputEmail', t.email);
-        this.translateLabel('customfield3', t.birthdate);
+        this.translateLabel('customfield5', t.birthdate);
         this.translateLabel('inputCompanyName', t.company);
         this.translateLabel('inputCountry', t.country);
         this.translateLabel('inputPostcode', t.postalCode);
         this.translateLabel('inputAddress1', t.address);
-        this.translateLabel('customfield18', t.addressNumber);
+        this.translateLabel('customfield3', t.addressNumber);
         this.translateLabel('inputAddress2', t.neighborhood);
         this.translateLabel('customfield19', t.complement);
         this.translateLabel('inputCity', t.city);
@@ -288,10 +288,10 @@ class StepByStepForm {
         // Traduz placeholders
         this.translatePlaceholder('inputFullName', t.fullNamePlaceholder);
         this.translatePlaceholder('inputEmail', t.emailPlaceholder);
-        this.translatePlaceholder('customfield3', t.birthdatePlaceholder);
+        this.translatePlaceholder('customfield5', t.birthdatePlaceholder);
         this.translatePlaceholder('inputPostcode', t.postalCodePlaceholder);
         this.translatePlaceholder('inputAddress1', t.addressPlaceholder);
-        this.translatePlaceholder('customfield18', t.numberPlaceholder);
+        this.translatePlaceholder('customfield3', t.numberPlaceholder);
         this.translatePlaceholder('inputAddress2', t.neighborhoodPlaceholder);
         this.translatePlaceholder('customfield19', t.complementPlaceholder);
         this.translatePlaceholder('inputCity', t.cityPlaceholder);
@@ -360,10 +360,10 @@ class StepByStepForm {
         setText('.panel-switch .switch-label', t.mailingReceived);
 
         // ====== Ajuda / help-blocks ======
-        setText('label[for="customfield2"] + input + .help-block', t.helpCpf);
-        setText('label[for="customfield3"] + input + .help-block', t.helpBirthdate);
-        setText('label[for="customfield5"] + input + .help-block', t.helpCnpj);
-        setText('label[for="customfield18"] + input + .help-block', t.helpNumber);
+        setText('label[for="customfield1"] + input + .help-block', t.helpCpf);
+        setText('label[for="customfield5"] + input + .help-block', t.helpBirthdate);
+        setText('label[for="customfield2"] + input + .help-block', t.helpCnpj);
+        setText('label[for="customfield3"] + input + .help-block', t.helpNumber);
         setText('label[for="customfield19"] + input + .help-block', t.helpComplement);
 
         // ====== Botão principal (submit) ======
@@ -645,10 +645,10 @@ class StepByStepForm {
     // Adapta os nomes dos campos conforme o país selecionado
     // ============================================
     adaptFieldLabels(countryCode) {
-        const cpfLabel = document.querySelector('label[for="customfield2"]');
-        const cnpjLabel = document.querySelector('label[for="customfield5"]');
-        const cpfField = document.getElementById('customfield2');
-        const cnpjField = document.getElementById('customfield5');
+        const cpfLabel = document.querySelector('label[for="customfield1"]');
+        const cnpjLabel = document.querySelector('label[for="customfield2"]');
+        const cpfField = document.getElementById('customfield1');
+        const cnpjField = document.getElementById('customfield2');
         
         // Define os labels conforme o país
         const fieldLabels = {
@@ -734,7 +734,7 @@ class StepByStepForm {
     handleCountryChange(countryCode) {
         const cepLabel = document.querySelector('label[for="inputPostcode"]');
         const cepField = document.getElementById('inputPostcode');
-        const addressFields = ['inputAddress1', 'inputAddress2', 'customfield18', 'customfield19', 'inputCity', 'stateselect'];
+        const addressFields = ['inputAddress1', 'inputAddress2', 'customfield3', 'customfield19', 'inputCity', 'stateselect'];
         const address2Label = document.querySelector('label[for="inputAddress2"]');
 
         if(cepField) cepField.value = '';
@@ -845,15 +845,15 @@ class StepByStepForm {
 
 
 
-        this.createTwoColumnRow([this.findMoveableGroup('customfield2'), this.findMoveableGroup('customfield3')]),
+        this.createTwoColumnRow([this.findMoveableGroup('customfield1'), this.findMoveableGroup('customfield5')]),
         this.createCheckboxField(),
-        this.createTwoColumnRow([this.findMoveableGroup('customfield5'), this.findMoveableGroup('inputCompanyName')]),
+        this.createTwoColumnRow([this.findMoveableGroup('customfield2'), this.findMoveableGroup('inputCompanyName')]),
     ]);
 
 
         const step2 = this.createStep(2, [
             this.createTwoColumnRow([this.findMoveableGroup('inputCountry'), this.findMoveableGroup('inputPostcode')]),
-            this.createTwoColumnRow([this.findMoveableGroup('inputAddress1'), this.findMoveableGroup('customfield18')]),
+            this.createTwoColumnRow([this.findMoveableGroup('inputAddress1'), this.findMoveableGroup('customfield3')]),
             this.createTwoColumnRow([this.findMoveableGroup('inputAddress2'), this.findMoveableGroup('customfield19')]),
             this.createTwoColumnRow([this.findMoveableGroup('inputCity'), this.findMoveableGroup('stateselect')])
         ]);
@@ -1100,12 +1100,12 @@ class StepByStepForm {
     const fullName  = document.getElementById('inputFullName')?.value || '-';
     const email     = document.getElementById('inputEmail')?.value || '-';
     const phone     = document.getElementById('inputPhone')?.value || '-';
-    const cpf       = document.getElementById('customfield2')?.value || '-';
-    const birthdate = document.getElementById('customfield3')?.value || '-';
+    const cpf       = document.getElementById('customfield1')?.value || '-';
+    const birthdate = document.getElementById('customfield5')?.value || '-';
 
     // Endereço (campos)
     const street     = document.getElementById('inputAddress1')?.value || '-';
-    const number     = document.getElementById('customfield18')?.value || '-';
+    const number     = document.getElementById('customfield3')?.value || '-';
     const complement = document.getElementById('customfield19')?.value || '-';
     const neighborhood = document.getElementById('inputAddress2')?.value || '-';
     const cep        = document.getElementById('inputPostcode')?.value || '-';
@@ -1186,11 +1186,11 @@ class StepByStepForm {
             this.checkStepValidationForButton();
             }
         }
-        if (e.target && e.target.id === 'customfield2') {
+        if (e.target && e.target.id === 'customfield1') {
             // limpa erro de servidor para cpf ao editar
             if (this.serverCpfExists) {
             this.serverCpfExists = false;
-            this.clearFieldError_('customfield2');
+            this.clearFieldError_('customfield1');
             this.checkStepValidationForButton();
             }
         }
@@ -1217,13 +1217,13 @@ class StepByStepForm {
     }
 
     toggleCnpjField(showCnpj) { 
-        const cnpjGroup = this.findMoveableGroup('customfield5'); 
-        const cpfGroup = this.findMoveableGroup('customfield2'); 
+        const cnpjGroup = this.findMoveableGroup('customfield2'); 
+        const cpfGroup = this.findMoveableGroup('customfield1'); 
         const companyNameGroup = this.findMoveableGroup('inputCompanyName'); 
-        const cpfField = document.getElementById('customfield2'); 
-        const cnpjField = document.getElementById('customfield5'); 
+        const cpfField = document.getElementById('customfield1'); 
+        const cnpjField = document.getElementById('customfield2'); 
         const companyNameField = document.getElementById('inputCompanyName'); 
-        const cnpjLabel = document.querySelector('label[for="customfield5"]'); 
+        const cnpjLabel = document.querySelector('label[for="customfield2"]'); 
         const companyNameLabel = document.querySelector('label[for="inputCompanyName"]'); 
         if (cnpjGroup && cpfGroup && cpfField && cnpjField && companyNameGroup && companyNameField) { 
             if (showCnpj) { 
@@ -1294,13 +1294,13 @@ class StepByStepForm {
         const country = document.getElementById('inputCountry')?.value || 'BR';
 
         // CPF
-        if (e.target.id === 'customfield2') {
+        if (e.target.id === 'customfield1') {
         if (country === 'BR') this.applyCpfMask(e.target); // só mascara no BR
         // fora do BR: sem máscara (deixa livre)
         }
 
         // CNPJ
-        if (e.target.id === 'customfield5') {
+        if (e.target.id === 'customfield2') {
         if (country === 'BR') this.applyCnpjMask(e.target); // só mascara no BR
         // fora do BR: sem máscara (deixa livre)
         }
@@ -1313,7 +1313,7 @@ class StepByStepForm {
         }
 
         // Data de nascimento
-        if (e.target.id === 'customfield3') this.applyDateMask(e.target);
+        if (e.target.id === 'customfield5') this.applyDateMask(e.target);
     });
     }
 
@@ -1394,7 +1394,7 @@ async validateCepField(cepField) {
 }
 
     showAddressFields(shouldShow) {
-        const addressFields = ['inputAddress1', 'inputAddress2', 'inputCity', 'stateselect', 'customfield18', 'customfield19'];
+        const addressFields = ['inputAddress1', 'inputAddress2', 'inputCity', 'stateselect', 'customfield3', 'customfield19'];
         
         addressFields.forEach(id => {
             const group = this.findMoveableGroup(id);
@@ -1472,7 +1472,7 @@ async validateCepField(cepField) {
     try {
         if (this.currentStep == 1) {
         const email = (document.getElementById('inputEmail')?.value || '').trim();
-        const cpf = (document.getElementById('customfield2')?.value || '').trim();
+        const cpf = (document.getElementById('customfield1')?.value || '').trim();
 
         try {
             let resp = null;
@@ -1501,7 +1501,7 @@ async validateCepField(cepField) {
 
             // limpa erros de servidor anteriores
             this.clearFieldError_?.('inputEmail');
-            this.clearFieldError_?.('customfield2');
+            this.clearFieldError_?.('customfield1');
 
             // marca flags internas (assuma que você já tem serverCpfExists/serverEmailExists; se não, cria)
             this.serverCpfExists = !!data.cpf;
@@ -1509,7 +1509,7 @@ async validateCepField(cepField) {
 
             // mostra mensagens específicas
             if (this.serverCpfExists) {
-                this.showFieldError_?.('customfield2', t.errorCpfExists || 'CPF já cadastrado.');
+                this.showFieldError_?.('customfield1', t.errorCpfExists || 'CPF já cadastrado.');
             }
             if (this.serverEmailExists) {
                 this.showFieldError_?.('inputEmail', t.errorEmailExists || 'E-mail já cadastrado.');
@@ -1612,7 +1612,7 @@ async validateCepField(cepField) {
         } else if (value && field.type === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
             isValid = false;
             errorMessage = 'E-mail inválido.';
-        } else if (field.id === 'customfield2') { // CPF / Doc Pessoa Física
+        } else if (field.id === 'customfield1') { // CPF / Doc Pessoa Física
             if (country === 'BR') {
                 if (field.required && !value) {
                 isValid = false; errorMessage = 'Este campo é obrigatório.';
@@ -1625,7 +1625,7 @@ async validateCepField(cepField) {
                 isValid = false; errorMessage = 'Este campo é obrigatório.';
                 }
             }
-        } else if (field.id === 'customfield5') { // CNPJ / Doc Pessoa Jurídica
+        } else if (field.id === 'customfield2') { // CNPJ / Doc Pessoa Jurídica
             if (country === 'BR') {
             if ((field.required && digits.length !== 14) || (!field.required && value && digits.length !== 14)) {
                 isValid = false; errorMessage = 'CNPJ inválido.';
@@ -1636,7 +1636,7 @@ async validateCepField(cepField) {
         } else if (field.id === 'inputPostcode' && country === 'BR' && digits.length < 8) {
             isValid = false;
             errorMessage = 'CEP inválido.';
-        } else if (field.id === 'customfield3') { // Data de Nascimento (DD/MM/AAAA)
+        } else if (field.id === 'customfield5') { // Data de Nascimento (DD/MM/AAAA)
         // Se estiver vazia e não for obrigatória, é válido
         if (!value) {
             isValid = !field.required;
@@ -1684,7 +1684,7 @@ async checkStepValidationForButton() {
   const currentStepEl = document.querySelector(`.form-step.step-${this.currentStep}`);
   if (!currentStepEl) return;
 
-  const fields = currentStepEl.querySelectorAll('input[required], select[required]:not(#referralSelect), #inputPhone, #customfield18, #customfield3');
+  const fields = currentStepEl.querySelectorAll('input[required], select[required]:not(#referralSelect), #inputPhone, #customfield3, #customfield5');
   let allValid = true;
 
   fields.forEach(field => {
@@ -1704,8 +1704,8 @@ async checkStepValidationForButton() {
 
   // Step 1: CPF/CNPJ por país
     if (this.currentStep === 1) {
-    const cpfField = document.getElementById('customfield2');
-    const cnpjField = document.getElementById('customfield5');
+    const cpfField = document.getElementById('customfield1');
+    const cnpjField = document.getElementById('customfield2');
     const pessoaJuridica = document.getElementById('pessoaJuridica');
     const companyNameField = document.getElementById('inputCompanyName');
     const country = document.getElementById('inputCountry')?.value || 'BR';
