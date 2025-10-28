@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const brandingPanel = document.createElement('div');
     brandingPanel.id = 'branding-panel';
     brandingPanel.innerHTML = `
-        <img src="/modules/addons/custom_features_for_whmcs_halver/public/img/logo.webp" alt="halver Logo" class="logo">
+        <img src="/modules/addons/custom_features_for_whmcs_halver/public/img/logo.svg" alt="halver Logo" class="logo">
         <h2><strong>Bem-vindo</strong> de volta,  
     <br><strong>Seja Rei!</strong></h2>
              <div class="flex gap-3 items-center">
