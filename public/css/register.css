@@ -1,0 +1,530 @@
+/* =============================================== */
+/* =========== ESTILOS GERAIS E RESET ========== */
+/* =============================================== */
+* {
+    box-sizing: border-box;
+}
+body.lagom {
+    background-color: #F0F2F5 !important;
+    background-image: url('https://auth.staycloud.com.br/images/background-staycloud.png' ) !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    background-size: cover !important;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+.btn-next:disabled {
+    background-color: #a5b4fc !important; /* Um roxo mais claro */
+    cursor: not-allowed !important;
+}
+
+/* Oculta elementos desnecessários do WHMCS */
+.app-sidebar, .main-top, .main-footer, .breadcrumb, .app-nav, .page-header, #containerNewUserSignup .section.section-sm:nth-of-type(2),
+#containerNewUserSignup .section.section-sm:nth-of-type(3), .section-title,
+.login-title, .generate-password {
+    display: none !important;
+}
+
+
+/* =============================================== */
+/* =========== LAYOUT PRINCIPAL DO APP =========== */
+/* =============================================== */
+.app-main {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    min-height: 100vh !important;
+    padding: 20px !important;
+    margin: 0 !important;
+    background: none !important;
+}
+
+.main-body {
+    padding: 0 !important;
+}
+
+/* =============================================== */
+/* ============ CARD DO FORMULÁRIO ============= */
+/* =============================================== */
+.login-container {
+    background: white !important;
+    border-radius: 16px !important;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1) !important;
+    padding: 0 !important;
+    max-width: 600px !important;
+    width: 100% !important;
+    margin: 0 !important;
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+.loginForm {
+    padding: 24px 40px; /* Padding padrão para desktop */
+}
+
+/* Header do card */
+.step-header {
+    background: #f8fafc !important;
+    padding: 30px 40px 20px !important;
+    border-bottom: 1px solid #e2e8f0 !important;
+}
+
+/* =============================================== */
+/* ========= SELETORES DO HEADER (NOVO) ======== */
+/* =============================================== */
+.header-top {
+    display: flex !important;
+    justify-content: flex-end !important;
+    margin-bottom: 16px;
+}
+
+.header-selectors-container {
+    display: flex !important;
+    gap: 12px !important;
+    align-items: center !important;
+}
+
+.header-selector-group {
+    display: inline-flex !important;
+    align-items: center !important;
+}
+
+.header-select {
+    border: 1px solid #d1d5db !important;
+    border-radius: 6px !important;
+    padding: 6px 10px !important;
+    background: white !important;
+    font-size: 14px !important;
+    cursor: pointer !important;
+    transition: all 0.2s ease !important;
+    min-width: 80px !important;
+}
+
+.header-select:hover {
+    border-color: #6366f1 !important;
+}
+
+.header-select:focus {
+    outline: none !important;
+    border-color: #6366f1 !important;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1) !important;
+}
+
+/* Seletor de país específico */
+#headerCountrySelect {
+    min-width: 90px !important;
+}
+
+/* =============================================== */
+/* ============ TÍTULO E SUBTÍTULO ============= */
+/* =============================================== */
+.step-title {
+    color: #1e293b !important;
+    font-size: 24px !important;
+    font-weight: 600 !important;
+    margin: 0 0 8px 0 !important;
+}
+
+.step-subtitle {
+    color: #64748b !important;
+    font-size: 16px !important;
+    margin: 0 !important;
+}
+
+/* =============================================== */
+/* ========== INDICADOR DE PROGRESSO =========== */
+/* =============================================== */
+.progress-indicator {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    margin-bottom: 20px !important;
+    position: relative !important;
+}
+
+.progress-indicator::before {
+    content: '' !important;
+    position: absolute !important;
+    top: 50% !important;
+    left: 16px !important;
+    right: 16px !important;
+    height: 2px !important;
+    background: #e2e8f0 !important;
+    z-index: 1 !important;
+    transform: translateY(-50%);
+}
+
+.progress-line {
+    position: absolute !important;
+    top: 50% !important;
+    left: 0 !important;
+    height: 2px !important;
+    background: #6366f1 !important;
+    transition: width 0.3s ease !important;
+    z-index: 2 !important;
+    transform: translateY(-50%);
+}
+
+.step-indicator {
+    width: 32px !important;
+    height: 32px !important;
+    border-radius: 50% !important;
+    background: #f1f5f9 !important;
+    color: #64748b !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    position: relative !important;
+    z-index: 3 !important;
+    transition: all 0.3s ease !important;
+    border: 2px solid #e2e8f0;
+}
+
+.step-indicator.active {
+    background: #6366f1 !important;
+    color: white !important;
+    border-color: #6366f1 !important;
+}
+
+.step-indicator.completed {
+    background: #10b981 !important;
+    color: white !important;
+    border-color: #10b981 !important;
+}
+
+.step-indicator.completed::after {
+    content: '✓' !important;
+    font-size: 14px !important;
+    font-weight: bold;
+}
+
+/* =============================================== */
+/* ============ CONTEÚDO DOS PASSOS ============ */
+/* =============================================== */
+.steps-container {
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+.form-step {
+    display: none;
+}
+
+.form-step.active {
+    display: block;
+}
+
+/* Grupos de campos */
+.form-group {
+    margin-bottom: 20px !important;
+}
+
+.header-selector-group  .form-group {
+    margin-bottom: 0 !important;
+}
+
+.form-group label {
+    display: block !important;
+    color: #374151 !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    margin-bottom: 8px !important;
+}
+
+/* Campos de input */
+.form-control {
+    width: 100% !important;
+    border: 1px solid #d1d5db !important;
+    border-radius: 8px !important;
+    font-size: 16px !important;
+    transition: all 0.2s ease !important;
+    background: white !important;
+}
+
+.form-control:focus {
+    outline: none !important;
+    border-color: #6366f1 !important;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1) !important;
+}
+
+/* Layout de duas colunas */
+.row {
+    display: flex !important;
+    flex-wrap: wrap;
+    gap: 20px !important;
+    margin: 0 !important;
+}
+
+.col-md-6 {
+    flex: 1 1 calc(50% - 10px) !important;
+    min-width: 200px; /* Evita que os campos fiquem muito espremidos */
+    padding: 0 !important;
+}
+
+/* =============================================== */
+/* ========= CAMPO DE TELEFONE (intl-tel-input) ==== */
+/* =============================================== */
+/* Garante que o plugin ocupe 100% da largura */
+.iti {
+    width: 100% !important;
+}
+
+/* Ajusta o padding do input para não sobrepor o código do país */
+#inputPhone {
+    padding-left: 92px !important;
+}
+
+/* =============================================== */
+/* ============ BOTÕES DE NAVEGAÇÃO ============ */
+/* =============================================== */
+.step-navigation {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding-top: 16px !important;
+    margin-top: 24px;
+    border-top: 1px solid #e5e7eb !important;
+}
+
+.btn-step {
+    padding: 12px 24px !important;
+    border-radius: 8px !important;
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    cursor: pointer !important;
+    border: none !important;
+}
+
+.btn-prev {
+    background: #f1f5f9 !important;
+    color: #475569 !important;
+}
+
+.btn-next {
+    background: #6366f1 !important;
+    color: white !important;
+}
+
+/* =============================================== */
+/* ============= BLOCOS DE RESUMO ============== */
+/* =============================================== */
+.summary-box {
+    background-color: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 16px 24px;
+    margin-bottom: 24px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.summary-box:hover {
+    border-color: #6366f1;
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.1);
+}
+
+.summary-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.summary-header h4 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+    color: #1e293b;
+}
+
+.edit-step-btn {
+    background: transparent;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.summary-content p {
+    margin: 4px 0;
+    font-size: 14px;
+    color: #475569;
+}
+
+/* =============================================== */
+/* ============ VALIDAÇÃO E ERROS ============== */
+/* =============================================== */
+.form-control.error {
+    border-color: #ef4444 !important;
+    background: #fef2f2 !important;
+}
+
+.form-control.success {
+    border-color: rgb(16, 185, 129) !important;
+    background: #ffffff !important;
+}
+
+.error-message {
+    color: #ef4444 !important;
+    font-size: 12px !important;
+    margin-top: 6px !important;
+    display: block !important;
+}
+
+.selector-group {
+    display: inline-block;
+}
+/* =============================================== */
+/* ============ RESPONSIVIDADE (MOBILE) ========== */
+/* =============================================== */
+.btn-next:disabled {
+    background-color: #a5b4fc !important;
+    cursor: not-allowed !important;
+}
+input[name="accepttos"] {
+  display: none !important;   /* esconde */
+}
+input[name="accepttos"]::before {
+  content: ""; /* evita espaço visual */
+}
+
+
+.col-md-12 {
+    padding-right: 0px!important;
+    padding-left: 0px!important;
+}
+/* Reordena só o Step 3 */
+.form-step[data-step="3"] .step-content{
+  display: flex;
+  flex-direction: column;
+}
+
+/* Tudo vira item flex (ordem padrão) */
+.form-step[data-step="3"] .step-content > *{ 
+  order: 10; 
+  width: 100%;           /* garante largura cheia */
+}
+
+/* O sumário vai para o topo visual */
+.form-step[data-step="3"] .step-content > .summary-section,
+.form-step[data-step="3"] .step-content > .summary-container{ 
+  order: 0; 
+}
+
+/* Segurança extra contra colapso de floats do tema */
+.form-step[data-step="3"] .step-content::after{
+  content:"";
+  display:block;
+  clear:both;
+}
+
+
+.btn-primary {
+    display: none!important;
+}
+
+
+.cookie-bar__content {
+    display: none!important;
+}
+
+
+#containerPassword {
+    flex-direction: column;
+    width: 100%;
+    gap: 0!important;
+}
+
+#newPassword1, #newPassword2 {
+    width: 500px!important;
+}
+
+.header-selector-group {
+    min-width: 0px !important;
+}
+@media (max-width: 768px) {
+    #newPassword1, #newPassword2, #referralWrapper {
+        width: 300px!important;
+    }
+
+    .main-body {
+        width: 100% !important;
+    }
+
+    /* --- 1. Força o Layout de Tela Cheia --- */
+    /* Remove o padding do container principal para o card colar nas bordas */
+    .app-main {
+        padding: 0 !important;
+        align-items: center !important;
+    }
+
+    /* ZERA o padding de containers-pai do WHMCS que causam o problema */
+    .container, .login-body {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+
+    /* Faz o card ocupar 100% da LARGURA DA TELA (vw), ignorando o pai */
+    .login-container {
+        margin: 0 !important;
+        max-width: 100vw !important;
+        width: 100vw !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+        min-height: 100vh;
+    }
+    
+    /* --- 2. Cria um Espaçamento Interno Seguro --- */
+    /* Agora que temos controle, adicionamos nosso próprio padding */
+    .step-header,
+    .loginForm,
+    .step-navigation {
+        padding-left: 25px !important;
+        padding-right: 25px !important;
+    }
+
+    .step-header { padding-top: 30px !important; padding-bottom: 20px !important; }
+    .loginForm { padding-top: 24px !important; padding-bottom: 0 !important; }
+    .step-navigation { padding-top: 24px !important; padding-bottom: 24px !important; }
+
+    /* --- 3. Ajustes de Tipografia e UI --- */
+    .step-title { font-size: 22px !important; }
+    .step-subtitle { font-size: 15px !important; }
+
+    .form-group label { font-size: 15px !important; }
+    .form-control {
+        font-size: 16px !important;
+    }
+
+    /* --- 4. Organização dos Elementos --- */
+    .row { flex-direction: column !important; gap: 0 !important; }
+
+    .step-navigation {
+        flex-direction: column-reverse !important;
+        gap: 12px !important;
+        background-color: #fff;
+    }
+    
+    .btn-step {
+        width: 100% !important;
+        justify-content: center !important;
+        padding: 14px 24px !important;
+    }
+
+    /* --- 5. Ajustes dos Seletores no Header (Mobile) --- */
+    .header-selectors-container {
+        gap: 8px !important;
+    }
+
+    .header-select {
+        font-size: 13px !important;
+        padding: 5px 8px !important;
+        min-width: 70px !important;
+    }
+
+
+
+
+}

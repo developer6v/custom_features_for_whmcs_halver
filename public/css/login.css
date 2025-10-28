@@ -1,0 +1,281 @@
+/* Reset e Esconde Elementos Indesejados */
+body.lagom {
+    background-color: #F0F2F5 !important; /* Fundo da página */
+    background-image: url('https://auth.staycloud.com.br/images/background-staycloud.png' ) !important; /* Imagem de fundo com linhas */
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    background-size: cover !important;
+}
+
+.app-main, .main-footer, .cookie-bar, #SASContainer, .main-header, .main-top {
+    display: none !important;
+}
+
+/* Novo Container Principal */
+#login-container-custom {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    font-family: 'Inter', sans-serif;
+}
+
+/* Painel Esquerdo (Branding) */
+#branding-panel {
+    background-color: #fff;
+    border-radius: 24px;
+    padding: 50px;
+    margin-right: 20px;
+    width: 450px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.05);
+    text-align: left;
+}
+#branding-panel img.logo {
+    max-width: 150px;
+    margin-bottom: 20px;
+}
+#branding-panel h2 {
+    font-size: 24px;
+    font-weight: 400;
+    color: #232427;
+    margin-bottom: 15px;
+}
+#branding-panel p {
+    font-size: 14px;
+    font-weight: 400;
+
+    color: #232427;
+    line-height: 2;
+}
+
+/* Painel Direito (Formulário) - Reutiliza .login-wrapper */
+.login-wrapper {
+    background-color: #ffffff !important;
+    border-radius: 24px !important;
+    padding: 40px !important;
+    width: 559px !important;
+    max-width: 100% !important;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.05) !important;
+    border: none !important;
+    margin: 0 !important;
+}
+
+/* Estilos do Formulário */
+.login-title {
+    color: #1E4A96 !important;
+    font-weight: 700 !important;
+    font-size: 26px !important;
+    text-align: left !important;
+    margin-bottom: 35px !important;
+}
+
+.login-form .form-group {
+    margin-bottom: 15px !important;
+    position: relative !important;
+}
+
+.login-form .form-control {
+    background-color: #F7F7F9 !important;
+    border: 1px solid #F7F7F9 !important;
+    border-radius: 14px !important;
+    font-size: 15px !important;
+    height: auto !important;
+    color: #333 !important;
+    border: 1px solid #e5e7eb !important;
+    padding-top: .75rem;
+    padding-bottom: .75rem;
+    padding-right: 2rem;
+    padding-left: 2rem;
+}
+.login-form .form-control:focus {
+    background-color: #fff !important;
+    border-color: #1E4A96 !important;
+    box-shadow: none !important;
+}
+
+/* Ícone de Olho */
+#password-toggle-icon {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #888;
+}
+
+/* Ocultar Labels e Checkbox */
+.form-group > label, .form-group label.checkbox {
+    display: none !important;
+}
+
+/* Botão Entrar */
+.btn-primary {
+    background-image: linear-gradient(90deg, #25ACB9 0%, #1E4A96 100%) !important;
+    border-radius: 14px !important;
+    padding: 16px !important;
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    margin-top: 10px !important;
+    border: none !important;
+}
+
+/* Links e Divisores */
+#links-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    font-size: 14px;
+}
+#links-container a {
+    color: #1E4A96 !important;
+    text-decoration: none !important;
+}
+
+#divider-ou {
+    text-align: center;
+    margin: 25px 0;
+    color: #aaa;
+}
+
+#google-signin-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 14px;
+    border: 1px solid #ddd;
+    border-radius: 14px;
+    background-color: #fff;
+    font-size: 15px;
+    color: #555;
+    cursor: pointer;
+}
+#google-signin-btn img {
+    width: 20px;
+    margin-right: 10px;
+}
+
+#footer-link-final {
+    text-align: center;
+    margin-top: 25px;
+    font-size: 14px;
+    color: #888;
+}
+#footer-link-final a {
+    color: #1E4A96 !important;
+    text-decoration: none !important;
+}
+
+
+.app-nav {
+    display: none!important;
+}
+
+strong {
+    color: #1E4A96;
+}
+
+h2 {
+    line-height: 1;
+}
+
+/* --- CSS PARA OS BOTÕES SOCIAIS --- */
+
+/* Contêiner dos botões e divisor "OU" */
+.social-signin-btns {
+    margin-top: 25px !important;
+    text-align: center !important;
+}
+
+.social-signin-btns::before {
+    content: 'OU';
+    display: block;
+    text-align: center;
+    margin-bottom: 25px;
+    color: #aaa;
+    font-size: 14px;
+}
+
+/* Esconde o botão original do Facebook */
+.social-signin-btns .btn-facebook {
+    display: none !important;
+}
+
+/* Customiza o botão do Google para o novo design */
+.social-signin-btns .btn-google {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+    padding: 14px !important;
+    border: 1px solid #ddd !important;
+    border-radius: 14px !important;
+    background-color: #fff !important;
+    font-size: 15px !important;
+    color: #555 !important;
+    text-decoration: none !important;
+    box-shadow: none !important;
+    height: auto !important;
+}
+
+/* Ajusta o iframe do Google para preencher o novo botão */
+.social-signin-btns .btn-google iframe {
+    margin: 0 !important;
+    width: 100% !important;
+}
+
+.social-signin-btns::before {
+    display: none!important;
+}
+
+
+.flex {
+    display: flex;
+}
+.gap-3 {
+    gap: 0.75rem;
+}
+.items-center {
+    align-items: center;
+}
+.rounded-full {
+    border-radius: 50%;
+}
+.border {
+    border-width: 1px;
+}
+.border-white {
+    border-color: white;
+}
+.ml {
+    margin-left: -12px;
+}
+.text-sm {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+}
+.font-medium {
+    font-weight: 500;
+}
+#branding-panel img.rounded-full {
+    width: 32px;
+    height: 32px;
+    object-fit: cover;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.imgclient {
+    width: 25px;
+    height: 25px;
+}
+
+
+@media screen and (max-width: 720px) {
+    #branding-panel {
+        display: none!important;
+    }
+    .login-wrapper {
+        width: 100%!important;
+    }
+}
