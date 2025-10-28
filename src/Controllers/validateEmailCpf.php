@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     try {
         $cpfBanco = Capsule::table('tblcustomfieldsvalues')
-            ->where('fieldid', 2)
+            ->where('fieldid', 1)
             ->whereRaw("REGEXP_REPLACE(value, '[^0-9]', '') = ?", [$cpfDigits])
             ->first();
 
