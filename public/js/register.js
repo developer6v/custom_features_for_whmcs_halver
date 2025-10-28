@@ -558,43 +558,33 @@ class StepByStepForm {
     // Agora inclui o seletor de país
     // ============================================
     createStepHeader() {
-        const container = document.querySelector('.login-wrapper');
-        const currencyGroup = this.findMoveableGroup('inputCurrency');
+    const container = document.querySelector('.login-wrapper');
+    if (!container) return;
 
-        if (container && currencyGroup) {
-            currencyGroup.querySelector('label')?.remove();
-            currencyGroup.classList.add('header-selector-group');
+    const header = document.createElement('div');
+    header.className = 'step-header';
+    header.innerHTML = `
+        <div class="header-top">
+        <div class="header-selectors-container">
+            <!-- Seletor de País -->
+            <div class="header-selector-group">
+            <select id="headerCountrySelect" class="header-select"></select>
+            </div>
+        </div>
+        </div>
+        <div class="progress-indicator">
+        <div class="progress-line" id="progressLine"></div>
+        <div class="step-indicator active" data-step="1">1</div>
+        <div class="step-indicator" data-step="2">2</div>
+        <div class="step-indicator" data-step="3">3</div>
+        </div>
+        <h1 class="step-title" id="stepTitle">Dados Pessoais</h1>
+        <p class="step-subtitle" id="stepSubtitle">Preencha suas informações básicas</p>
+    `;
 
-            const header = document.createElement('div');
-            header.className = 'step-header';
-            header.innerHTML = `
-                <div class="header-top">
-                    <div class="header-selectors-container">
-                        <!-- Seletor de País -->
-                        <div class="header-selector-group">
-                            <select id="headerCountrySelect" class="header-select">
-                              
-                            </select>
-                        </div>
-                    </div>
-                </div>
-                <div class="progress-indicator">
-                    <div class="progress-line" id="progressLine"></div>
-                    <div class="step-indicator active" data-step="1">1</div>
-                    <div class="step-indicator" data-step="2">2</div>
-                    <div class="step-indicator" data-step="3">3</div>
-                </div>
-                <h1 class="step-title" id="stepTitle">Dados Pessoais</h1>
-                <p class="step-subtitle" id="stepSubtitle">Preencha suas informações básicas</p>
-            `;
-            
-            // Adiciona o seletor de moeda após o seletor de país
-            const selectorsContainer = header.querySelector('.header-selectors-container');
-            selectorsContainer.appendChild(currencyGroup);
-            
-            container.insertBefore(header, container.firstChild);
-        }
+    container.insertBefore(header, container.firstChild);
     }
+
 
     // ============================================
     // MÉTODO NOVO: setupHeaderCountryListener
