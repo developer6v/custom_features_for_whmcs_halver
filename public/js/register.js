@@ -499,20 +499,20 @@ class StepByStepForm {
     if (!form) return null;
 
     // tenta achar por id OU pelo name correto do WHMCS
-    let el = document.getElementById('customfield157') ||
+    let el = document.getElementById('customfield4') ||
             form.querySelector('input[name="customfield[157]"]');
 
     if (!el) {
         // cria o hidden compatível com WHMCS
         el = document.createElement('input');
         el.type = 'hidden';
-        el.id = 'customfield157';       // útil pra selecionar no seu JS
+        el.id = 'customfield4';       // útil pra selecionar no seu JS
         el.name = 'customfield[157]';   // ESSENCIAL pro WHMCS
         form.appendChild(el);
         console.log('[ReferralCheck] customfield[157] CRIADO (hidden)');
     } else {
         // normaliza e oculta o grupo original
-        el.id = 'customfield157';
+        el.id = 'customfield4';
         el.name = 'customfield[157]';
         el.type = 'hidden';
         el.disabled = false;
@@ -1887,12 +1887,12 @@ getReferralOptions_() {
 
 // ======================================
 // NOVO: UI do "Por onde nos conheceu"
-// Usa o input hidden original (customfield157)
+// Usa o input hidden original (customfield4)
 // ======================================
 createReferralField() {
   // esconde o campo original do WHMCS mas mantém para submit
-  const origGroup = this.findMoveableGroup('customfield157');
-  const hiddenInput = document.getElementById('customfield157');
+  const origGroup = this.findMoveableGroup('customfield4');
+  const hiddenInput = document.getElementById('customfield4');
   if (origGroup) origGroup.style.display = 'none';
   if (hiddenInput) {
     hiddenInput.type = 'hidden';                // garante que não apareça
@@ -1925,7 +1925,7 @@ createReferralField() {
     const select = wrap.querySelector('#referralSelect');
     const detail = wrap.querySelector('#referralDetail');
     const err    = wrap.querySelector('#referralError');
-    const hidden = document.getElementById('customfield157');
+    const hidden = document.getElementById('customfield4');
 
     // placeholder dinâmico + mostrar/ocultar detalhe
     const meta = opts.find(o => o.value === select.value) || { ph: '' };
@@ -1988,7 +1988,7 @@ validateReferral_() {
 
   const select = wrap.querySelector('#referralSelect');
   const detail = wrap.querySelector('#referralDetail');
-  const hidden = document.getElementById('customfield157');
+  const hidden = document.getElementById('customfield4');
 
   // Mantém o hidden coerente, mesmo que vazio
   if (hidden) hidden.value = this.joinReferralValue_(select?.value || '', detail?.value || '');
