@@ -281,7 +281,7 @@ class StepByStepForm {
         this.translateLabel('inputAddress1', t.address);
         this.translateLabel('customfield3', t.addressNumber);
         this.translateLabel('inputAddress2', t.neighborhood);
-        this.translateLabel('customfield19', t.complement);
+        this.translateLabel('customfield11', t.complement);
         this.translateLabel('inputCity', t.city);
         this.translateLabel('stateselect', t.state);
         
@@ -293,7 +293,7 @@ class StepByStepForm {
         this.translatePlaceholder('inputAddress1', t.addressPlaceholder);
         this.translatePlaceholder('customfield3', t.numberPlaceholder);
         this.translatePlaceholder('inputAddress2', t.neighborhoodPlaceholder);
-        this.translatePlaceholder('customfield19', t.complementPlaceholder);
+        this.translatePlaceholder('customfield11', t.complementPlaceholder);
         this.translatePlaceholder('inputCity', t.cityPlaceholder);
         
         // Traduz checkbox
@@ -364,7 +364,7 @@ class StepByStepForm {
         setText('label[for="customfield5"] + input + .help-block', t.helpBirthdate);
         setText('label[for="customfield2"] + input + .help-block', t.helpCnpj);
         setText('label[for="customfield3"] + input + .help-block', t.helpNumber);
-        setText('label[for="customfield19"] + input + .help-block', t.helpComplement);
+        setText('label[for="customfield11"] + input + .help-block', t.helpComplement);
 
         // ====== Botão principal (submit) ======
         setText('.form-actions .btn .btn-text', t.registerButton);
@@ -724,7 +724,7 @@ class StepByStepForm {
     handleCountryChange(countryCode) {
         const cepLabel = document.querySelector('label[for="inputPostcode"]');
         const cepField = document.getElementById('inputPostcode');
-        const addressFields = ['inputAddress1', 'inputAddress2', 'customfield3', 'customfield19', 'inputCity', 'stateselect'];
+        const addressFields = ['inputAddress1', 'inputAddress2', 'customfield3', 'customfield11', 'inputCity', 'stateselect'];
         const address2Label = document.querySelector('label[for="inputAddress2"]');
 
         if(cepField) cepField.value = '';
@@ -844,7 +844,7 @@ class StepByStepForm {
         const step2 = this.createStep(2, [
             this.createTwoColumnRow([this.findMoveableGroup('inputCountry'), this.findMoveableGroup('inputPostcode')]),
             this.createTwoColumnRow([this.findMoveableGroup('inputAddress1'), this.findMoveableGroup('customfield3')]),
-            this.createTwoColumnRow([this.findMoveableGroup('inputAddress2'), this.findMoveableGroup('customfield19')]),
+            this.createTwoColumnRow([this.findMoveableGroup('inputAddress2'), this.findMoveableGroup('customfield11')]),
             this.createTwoColumnRow([this.findMoveableGroup('inputCity'), this.findMoveableGroup('stateselect')])
         ]);
 
@@ -1096,7 +1096,7 @@ class StepByStepForm {
     // Endereço (campos)
     const street     = document.getElementById('inputAddress1')?.value || '-';
     const number     = document.getElementById('customfield3')?.value || '-';
-    const complement = document.getElementById('customfield19')?.value || '-';
+    const complement = document.getElementById('customfield11')?.value || '-';
     const neighborhood = document.getElementById('inputAddress2')?.value || '-';
     const cep        = document.getElementById('inputPostcode')?.value || '-';
     const city       = document.getElementById('inputCity')?.value || '-';
@@ -1384,7 +1384,7 @@ async validateCepField(cepField) {
 }
 
     showAddressFields(shouldShow) {
-        const addressFields = ['inputAddress1', 'inputAddress2', 'inputCity', 'stateselect', 'customfield3', 'customfield19'];
+        const addressFields = ['inputAddress1', 'inputAddress2', 'inputCity', 'stateselect', 'customfield3', 'customfield11'];
         
         addressFields.forEach(id => {
             const group = this.findMoveableGroup(id);
